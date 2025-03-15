@@ -39,17 +39,18 @@ pip install booleanDictFilter
 ## Examples
 Allows for testing a single, or group of dictionaries against a text defined filter.   
 
-    import BooleanDictFilter from BooleanDictFilter 
-    filter_str = "(anyof(role, ['admin', 'moderator']) and age >= 30)"  
-    bf = BooleanDictFilter(filter_str)
+    from BooleanDictFilter import BooleanDictFilter
+
+    filter_str = "(anyof(role, ['admin', 'moderator']) and age >= 30)"
+    bf = BooleanDictFilter.BooleanDictFilter(filter_str)
     print (bf.evaluate({"role": "admin", "age": 35, "status": "active", "name": "John"})) # True
     print (bf.evaluate({"role": "user", "age":34, "status": "active", "name": "June"})) # False
 
 The same filter can be used to evaluate a list of dictionaries, returning only those dictionaries which passed the evaluation:
 
-    import BooleanDictFilter from BooleanDictFilter
+    from BooleanDictFilter import BooleanDictFilter
     filter_str = "(anyof(role, ['admin', 'moderator']) and age >= 30)"  
-    bf = BooleanDictFilter(filter_str)
+    bf = BooleanDictFilter.BooleanDictFilter(filter_str)
     data_list = [  
     	{"role": "admin", "age": 35, "status": "active", "name": "John"},
     	{"role": "user", "age":34, "status": "active", "name": "June"}
